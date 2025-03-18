@@ -1,38 +1,439 @@
-.App {
+/* Bar Chart Visualizations */
+.bar-chart {
+  width: 100%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin: 5px 0;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.bar-value {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #333;
+  padding: 0 5px;
+  font-size: 13px;
+}
+
+.grid-chart {
+  margin-top: 16px;
+}
+
+/* Enhanced analytics dashboard */
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.metric-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  margin: 0 8px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.metric-card:first-child {
+  margin-left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.metric-card:last-child {
+  margin-right: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2196F3;
+  margin: 10px 0;
+}
+
+.metric-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.trend-indicator {
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.trend-up {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.trend-down {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+}
+
+/* Improved data visualization */
+.data-grid-section {
+  margin-top: 24px;
+}
+
+.data-grid-section h3 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.bar-label {
+  display: inline-block;
+  width: 100px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.stacked-bars {
+  display: flex;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.stacked-bar-segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.segment-tooltip {
+  position: relative;
+}
+
+.segment-tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.distribution-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.distribution-item {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-top: 3px solid;
+}
+
+.distribution-value {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 0;
+}/* Main application styles */
+.blockchain-visualizer {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  background-color: #f9fafb;
+}
+
+h1 {
+  color: #1976d2;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.controls-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.blockchain-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-range-picker {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-submit {
+  margin-top: 16px;
+}
+
+/* Tab Content Styling */
+.main-tabs {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.k-tabstrip-content {
+  padding: 24px;
+  background-color: #fff;
+}
+
+/* Style the tab headers */
+.k-tabstrip-items {
+  background-color: #f5f9ff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.k-tabstrip-item {
+  margin: 0;
+  padding: 12px 20px;
+  border: none;
+  color: #555;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.k-tabstrip-item.k-state-active {
+  color: #2196F3;
+  border-bottom: 2px solid #2196F3;
+  background-color: white;
+}
+
+/* Chart Container */
+.chart-container {
+  margin-bottom: 32px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.chart-container h3 {
+  margin-top: 0;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* Address Tracker */
+.address-details {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #f5f9ff;
+  border-radius: 4px;
+  border-left: 4px solid #2196F3;
+}
+
+.metrics-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 24px 0;
+}
+
+.metric {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1976d2;
+}
+
+.metric-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Education Panel */
+.education-panel {
+  line-height: 1.6;
+}
+
+.education-panel h3 {
+  color: #2196F3;
+  margin-bottom: 16px;
+}
+
+.education-panel h4 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.education-panel ul {
+  padding-left: 20px;
+}
+
+.education-panel li {
+  margin-bottom: 8px;
+}
+
+.blocks-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px 0;
+}
+
+.block {
+  min-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+
+.block-header {
+  background-color: #2196F3;
   color: white;
+  padding: 8px 12px;
+  font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.block-content {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.blockchain-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.type-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.type-card h5 {
+  color: #2196F3;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Tooltip Styling */
+.tooltip-target {
+  text-decoration: underline;
+  color: #2196F3;
+  cursor: help;
+  margin-left: 4px;
+}
+
+.tooltip-content {
+  padding: 8px;
+  max-width: 250px;
+  line-height: 1.4;
+}
+
+/* Transaction Details Dialog */
+.transaction-details {
+  padding: 0 16px;
+}
+
+.transaction-details h3 {
+  color: #1976d2;
+  font-weight: 500;
+  margin-bottom: 16px;
+  word-break: break-all;
+}
+
+.transaction-details p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.confirmation-progress {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .controls-panel {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .date-range-picker {
+    flex-wrap: wrap;
+  }
+  
+  .metrics-panel {
+    flex-direction: column;
+    gap: 16px;
   }
 }
