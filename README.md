@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Blockchain Transaction Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application that visualizes blockchain transactions using KendoReact Free components. This interactive dashboard allows users to explore transactions across different blockchain networks, analyze trends, and learn about blockchain technology.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Multi-chain Explorer**: View transactions across Bitcoin, Ethereum, and other major blockchains
+- **Transaction Visualization**: See transaction flows and trends through interactive charts
+- **Historical Analysis**: Compare transaction volumes and values across customizable time periods
+- **Block Explorer**: Examine block contents and transaction details
+- **Wallet Tracker**: Follow specific wallet addresses and their transaction histories
+- **Educational Elements**: Built-in tooltips and guides explaining blockchain concepts
 
-### `npm start`
+## KendoReact Free Components Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This application showcases the following 10 KendoReact Free components:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Grid**: For displaying transaction data with sorting and pagination
+2. **Chart**: For visualizing transaction metrics and trends
+3. **DatePicker**: For selecting date ranges to analyze
+4. **TabStrip**: For organizing different sections of the application
+5. **Button**: For triggering actions throughout the interface
+6. **Dialog**: For displaying detailed transaction information
+7. **DropDownList**: For selecting different blockchain networks
+8. **Notification**: For displaying alerts and status messages
+9. **Form**: For inputting wallet addresses and other data
+10. **Tooltip**: For providing educational information about blockchain concepts
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/blockchain-visualizer.git
+   cd blockchain-visualizer
+   ```
 
-### `npm run build`
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Accessibility Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Semantic HTML structure throughout the application
+- ARIA attributes for interactive components
+- Keyboard navigation support for all interactive elements
+- High contrast color scheme that meets WCAG AA standards
+- Screen reader-friendly tooltips and notifications
 
-### `npm run eject`
+## Implementation Notes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The application currently uses mock data. In a production environment, you would connect to blockchain APIs.
+- The free components from KendoReact are used throughout the application to provide a rich user experience.
+- The educational content aims to make blockchain concepts more accessible to newcomers.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Enhancements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Integration with real blockchain APIs for live data
+- Advanced transaction analysis features
+- Network visualization showing transaction relationships
+- Mobile-responsive design improvements
+- Additional blockchain networks and metrics
