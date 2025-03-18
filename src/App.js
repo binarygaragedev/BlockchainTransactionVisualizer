@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Free KendoReact components only
 import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import { Button } from '@progress/kendo-react-buttons';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
@@ -12,10 +11,8 @@ import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Label } from '@progress/kendo-react-labels';
 import { Tooltip } from '@progress/kendo-react-tooltip';
 
-// For data operations
 import { process } from '@progress/kendo-data-query';
 
-// App Layout Structure
 const BlockchainVisualizer = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedBlockchain, setSelectedBlockchain] = useState('bitcoin');
@@ -36,7 +33,6 @@ const BlockchainVisualizer = () => {
     take: 10
   });
 
-  // Blockchain options for dropdown
   const blockchainOptions = [
     { text: 'Bitcoin', value: 'bitcoin' },
     { text: 'Ethereum', value: 'ethereum' },
@@ -44,13 +40,11 @@ const BlockchainVisualizer = () => {
     { text: 'Solana', value: 'solana' }
   ];
   
-  // Function to get blockchain name from value
   const getBlockchainName = (value) => {
     const option = blockchainOptions.find(opt => opt.value === value);
     return option ? option.text : 'Unknown';
   };
 
-  // Sample transaction data for each blockchain
   const blockchainData = {
     bitcoin: [
       { id: 'btc1234...abc', from: '1abc...123', to: '1def...456', value: 1.234, timestamp: new Date(2023, 2, 15), confirmations: 58 },
@@ -102,7 +96,6 @@ const BlockchainVisualizer = () => {
     ]
   };
   
-  // Chart data for each blockchain
   const blockchainChartData = {
     bitcoin: [
       { date: 'Mar 10', count: 325, value: 156.23 },
@@ -142,7 +135,6 @@ const BlockchainVisualizer = () => {
     ]
   };
   
-  // Pie chart data for each blockchain
   const blockchainPieChartData = {
     bitcoin: [
       { category: "0-500KB", value: 35 },
@@ -170,7 +162,6 @@ const BlockchainVisualizer = () => {
     ]
   };
 
-  // Function to get explorer URL based on blockchain and transaction ID
   const getExplorerUrl = (blockchain, transactionId) => {
     switch(blockchain) {
       case 'bitcoin':
@@ -186,7 +177,6 @@ const BlockchainVisualizer = () => {
     }
   };
 
-  // Handle opening transaction in explorer
   const handleViewOnExplorer = () => {
     if (selectedTransaction) {
       const explorerUrl = getExplorerUrl(selectedBlockchain, selectedTransaction.id);
@@ -199,14 +189,7 @@ const BlockchainVisualizer = () => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      
-      // In a real implementation, this would call a blockchain API
-      // For example: const response = await fetch(`https://api.blockchain.com/v3/${selectedBlockchain}/transactions?start=${dateRange.start}&end=${dateRange.end}`);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // Get the data for the selected blockchain
+      await new Promise(resolve => setTimeout(resolve, 800));      
       setTransactions(blockchainData[selectedBlockchain] || []);
       setIsLoading(false);
     };
@@ -214,35 +197,28 @@ const BlockchainVisualizer = () => {
     fetchData();
   }, [selectedBlockchain, dateRange]);
 
-  // Process grid data with sorting, paging
   const processedData = process(transactions, gridDataState);
 
-  // Handle grid data state change
   const handleGridDataStateChange = (e) => {
     setGridDataState(e.dataState);
   };
 
-  
-  // Handle transaction selection
   const handleTransactionSelect = (event) => {
     setSelectedTransaction(event.dataItem);
     setTransactionDetailsOpen(true);
   };
   
-  // Show notification
   const showNotification = (message) => {
     setNotificationMessage(message);
     setNotificationVisible(true);
     setTimeout(() => setNotificationVisible(false), 3000);
   };
 
-  // Handle adding address to watchlist
   const handleAddressSubmit = (dataItem) => {
     setWatchedAddress(dataItem.address);
     showNotification(`Added ${dataItem.address} to watched addresses`);
   };
 
-  // Tab selection handler
   const handleTabSelect = (e) => {
     setActiveTab(e.selected);
   };
@@ -251,7 +227,6 @@ const BlockchainVisualizer = () => {
     <div className="blockchain-visualizer">
       <h1>Blockchain Transaction Visualizer</h1>
       
-      {/* Blockchain Selection and Date Range */}
       <div className="controls-panel">
         <div className="blockchain-selector">
           <Label>Blockchain Network</Label>
@@ -260,9 +235,7 @@ const BlockchainVisualizer = () => {
             value={selectedBlockchain}
             onChange={(e) => {
               const newValue = e.target.value;
-              setSelectedBlockchain(newValue);
-              
-              // Get blockchain name from the select options
+              setSelectedBlockchain(newValue);              
               const blockchainName = getBlockchainName(newValue);
               showNotification(`Switched to ${blockchainName} blockchain`);
             }}
@@ -299,8 +272,6 @@ const BlockchainVisualizer = () => {
           </Button>
         </div>
       </div>
-      
-      {/* Main Content Tabs */}
       <TabStrip
         selected={activeTab}
         onSelect={handleTabSelect}
@@ -613,7 +584,6 @@ const BlockchainVisualizer = () => {
         </TabStripTab>
       </TabStrip>
       
-      {/* Transaction Details Dialog */}
       {selectedTransaction && transactionDetailsOpen && (
         <Dialog
           title="Transaction Details"
@@ -646,7 +616,6 @@ const BlockchainVisualizer = () => {
         </Dialog>
       )}
       
-      {/* Notification Group */}
       <NotificationGroup
         style={{
           position: 'fixed',
